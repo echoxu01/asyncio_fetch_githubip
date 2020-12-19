@@ -28,8 +28,8 @@
 
 
 
-![fetchip_cmd](https://gitee.com/echoxu1033/images/blob/master/img/fetchip_cmd.png)
+![fetchip_cmd](https://cache.echoxu.cn/github-img/fetchip_cmd.png)
 
 
 
-![update-hosts](https://gitee.com/echoxu1033/images/blob/master/img/update-hosts.png)
+![update-hosts](https://cache.echoxu.cn/github-img/update-hosts.png)
