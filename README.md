@@ -22,7 +22,8 @@
 * 用记事本或notepad++打开`update_hosts.bat`文件，将` var变量值`改成你自己存放该项目的地址
 * 右键点击`update_hosts.bat`, 以`管理员`身份运行
 
-
+> src/fetch_githubip_sync.py中的代码没有使用asyncio,代码是同步阻塞的，不推荐使用。
+>
 
 ## 效果图
 
