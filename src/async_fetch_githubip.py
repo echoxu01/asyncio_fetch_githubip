@@ -1,4 +1,4 @@
-#  -*-  coding:   utf-8  -*-
+﻿#  -*-  coding:   utf-8  -*-
 #  Author  :      echoxu
 #  DateTime:      2020/12/3 20:58
 
@@ -204,4 +204,4 @@ if __name__ == '__main__':
     asyncio.run(main(url_list))
     end_time = time.perf_counter()
     print('\nFetched: {}/{}(total) sites in {} seconds'.format(len(githubip_domain), len(url_list), end_time - start_time))
-    # update_host()
+    update_host()
