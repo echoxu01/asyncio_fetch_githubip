@@ -1,0 +1,5 @@
+aiohttp==3.7.3
+tldextract==3.1.0
+pythonping==1.0.15
+lxml==4.6.2
+bs4
