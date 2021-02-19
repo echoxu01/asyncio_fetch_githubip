@@ -1,7 +1,7 @@
 ﻿#  -*-  coding:   utf-8  -*-
 #  Author  :      echoxu
 #  DateTime:      2020/12/3 20:58
-
+#%%
 import re
 import os
 import shutil
@@ -13,7 +13,22 @@ import tldextract
 from bs4 import BeautifulSoup
 from pythonping import ping
 import concurrent.futures
+import platform
 
+# 默认为Windows路径
+is_windows = True
+host_path = "C:\\Windows\\System32\\drivers\\etc\\hosts"
+
+if "Windows" in platform.platform():
+    print("Windows")
+else:
+    host_path = "/etc/hosts"
+    is_windows = False
+    print("Linux")
+
+print("Host Path: " + host_path)
+
+#%%
 need_domains = ['github.com',
                 'www.github.com',
                 'github.global.ssl.fastly.net',
@@ -171,9 +186,9 @@ def update_host():
     print("\n正在更新系统hosts文件...请不要关闭此窗口!\n")
 
     today = time.strftime("%Y-%m-%d %X")
-    shutil.copy("C:\\Windows\\System32\\drivers\\etc\\hosts", "C:\\Windows\\System32\\drivers\\etc\\hosts.bak")
+    shutil.copy(host_path, str(host_path + ".bak"))
 
-    f1 = open("C:\\Windows\\System32\\drivers\\etc\\hosts", "r")
+    f1 = open(host_path, "r")
     lines = f1.readlines()
     f2 = open("temphost", "w")
 
@@ -189,9 +204,11 @@ def update_host():
     f1.close()
     f2.close()
 
-    shutil.copy("./temphost", "C:\\Windows\\System32\\drivers\\etc\\hosts")
-
-    os.system("ipconfig /flushdns")
+    shutil.copy("./temphost", host_path)
+    if is_windows:
+        os.system("ipconfig /flushdns")
+    else:
+        os.system("systemd-resolve --flush-caches")
     print("\n已更新Github相关域名的IP信息!\n")
 
 
